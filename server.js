@@ -1,8 +1,8 @@
 var express = require('express');
 var app=express();
 var  sqlite3 = require('sqlite3');
-var db = new sqlite3.Database('patienttbl');
-var bodyParser = require('body-paser');
+var db = new sqlite3.Database('db');
+var bodyParser = require('body-parser');
 
 app.use(express.static(__dirname +'/public'));
 app.use(bodyParser.urlencoded({extended:false}));
