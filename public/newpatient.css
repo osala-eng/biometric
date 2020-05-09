@@ -99,6 +99,8 @@ h2{
 #medical-record h2{
     text-align: center;
     clear: both;
+    background-color: lawngreen;
+    margin-top: 0.5cm;
 }
 #medical-record-left{
     float: left;
