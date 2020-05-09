@@ -14,13 +14,13 @@
         <div id="workarea">
             <div id="menu-bar">
                 <form>
-                    <input type="button" name="home" value="HOME"/>
-                    <input type="button" name="scan" value="SCAN" onclick="scanPage()"/>
-                    <input type="button"name="newpatient" value="NEW PATIENT"/>
-                    <input type="button" name="logout" value="LOG OUT"/>
+                    <input type="button" name="home" value="HOME"  onclick="homePage()"/>
+                    <input type="button" name="scan" value="SCAN" onclick="startScan()" />
+                    <input type="button"name="newpatient" value="NEW PATIENT"  onclick="newPatient()"/>
+                    <input type="button" name="logout" value="LOG OUT"  onclick="logOut()"/>
                     <input type="button"name="about" value="ABOUT US"/>
                 </form>
-                <video src="vid.mp4" preload="auto"width="500px"></video>
+                <!--<video src="vid.mp4" preload="auto"width="500px"></video>-->
             </div>
            <!-- <div id="login-window">
                 <form>
@@ -50,5 +50,6 @@
             Developed by Osala c2020
             <n>jashonosala@gmail.com</n>
         </footer>
+        <script src="user.js"></script>
     </body>
 </html>
