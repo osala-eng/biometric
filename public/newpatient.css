@@ -150,4 +150,9 @@ h2{
     margin-left:  auto;
     margin-right: auto;
     width: 100px;
+    clear: both;
 }
+#submit input[type="password" i]{
+    width: 6.5cm;
+    height: 0.6cm;
+} 
