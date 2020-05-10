@@ -11,7 +11,7 @@
     <link href="newpatient.css" rel="stylesheet"/>
     <body>
         <div id="workarea">
-            <form>
+            <form action="/" method="POST">
                 <div id="letterhead" >
                     <h2>
                         HEALTH CENTER
@@ -34,7 +34,7 @@
                             <input type="date" name="dateofBirth" placeholder="Date of birth"/>
                             <input type="text" name="nameofParent" placeholder="Parent's name" spellcheck="false"/>
                             <input type="number"name="phoneNumber" placeholder="TEL" size="10"/>
-                            <input type="email" name="emailaddress" placeholder="Email address" spellcheck="false"/>
+                            <input type="email" name="emailAddress" placeholder="Email address" spellcheck="false"/>
                             <input type="text" name="placeofBirth" placeholder="Place of birth" spellcheck="false"/>
                         </div>
                     </div>
@@ -46,18 +46,17 @@
                         </div>
                         <div id="medical-data-right">
                             <input type="text" name="bloodGroup" placeholder="Blood group"/>
-                            <input type="datetime-local" name="dateofVisit"/>
+                            <input type="date" name="dateofVisit"/>
                         </div>
                         <div id="medical-record-report">
                             <h3>Report</h3>
-                            <textarea name="doctor-report">
-                            </textarea>
+                            <textarea name="doctorReport" spellcheck="true" placeholder="Patient report..."></textarea>
                         </div>
                     </div>
 
                 </div>
                 <div id="submit">
-                    <input type="password" placeholder="Place cursor here the scan thumb print"
+                    <input type="password" placeholder="Place cursor here the scan thumb print" name="uniqueID"
                      minlength="8" maxlength="8" />
                     <input type="button" value="CANCEL" onclick="homePage()"/>
                     <input type="button" value="RESET" onclick="newPatient()"/>
