@@ -54,6 +54,7 @@ header h1{
     width: 7cm;
     height: 1cm;
     margin: 0.5cm;
+    text-align: center;
 
 }
 #scan-window-name h2{
@@ -65,5 +66,12 @@ h2{
     margin: 0px 0px;
 }
 #scan-window-cancel input[type="button"]{
-    width: 4cm;
+    width:3cm;
+    border-radius: 10px;
+    margin-left: 0.5cm;
+}#scan-window-cancel input[type="submit"]{
+    width:3cm;
+    border-radius: 10px;
+    margin-right: 0.5cm;
+    visibility: show;
 }

@@ -14,26 +14,27 @@
         <div id="workarea">
 
             <div id="menu-bar">
-                <form>
+                <!--<form>
                     <input type="button" name="home" value="HOME"/>
                     <input type="button" name="scan" value="SCAN"/>
                     <input type="button"name="newpatient" value="NEW PATIENT"/>
                     <input type="button" name="logout" value="LOG OUT"/>
                     <input type="button"name="about" value="ABOUT US"/>
-                </form>
+                </form>-->
                 <!--<video src="vid.mp4" preload="auto"width="500px"></video>-->
             </div>
             <div id="scan-window">
-                <form>
+                <form action="/data" method="GET" > 
                     <div id="scan-window-name" >
                         <h2>Ready to scan</h2>
                     </div>
                     <div id="scan-window-item">
-                        <input type="password" id="scanWindow" spellcheck="false" 
-                        required placeholder="Waiting for scanner..."
+                        <input type="password" name="scanWindow" spellcheck="false" id="scanBox"
+                        required placeholder="Waiting for scanner..." 
                         minlength="8" maxlength="8" spellcheck="false"/>
                     </div>
                     <div id="scan-window-cancel">
+                        <input type="submit" value="SUBMIT" onclick="getpatientData()"/>
                         <input type="button" name="back" value="Cancel" 
                         onclick="cancelScan()"/>
                     </div>
@@ -70,5 +71,6 @@
             <n>jashonosala@gmail.com</n>
         </footer>
         <script src="user.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     </body>
 </html>

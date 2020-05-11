@@ -1,0 +1,55 @@
+body{
+    background-color: #42f5c8;
+}
+footer{
+    clear: both;
+    color: darkcyan;
+}
+#workarea{
+    width: 21cm;
+    height: 30cm;
+    margin: auto;
+    background-color: lavender;
+}
+header{
+    text-align: center;
+    font-size: xx-large;
+    color: #424ef5;
+    font-style: normal;
+    font-family: cursive;
+    background-color: #f542f5;  
+    border-radius: 5px; 
+}
+header h1{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#letterhead{
+    margin-top: 1cm;
+    margin-bottom: 0px;
+    text-align: center;
+    border-bottom: 2px black dashed;
+}
+#letterhead h2{
+    margin-top: 1cm;
+}
+#patientData{
+    margin: 1cm 3cm;
+}
+#patientData h3{
+    width: 5cm;
+    float: left;
+    background-color: cyan;
+    margin: 16px 0;
+    height: 0.8cm;
+    position: static;
+}
+#patientData p{
+    width: 8cm;
+    float: right;
+    background-color: cadetblue;
+    margin: 16px 0;
+    height: 0.8cm;
+    position: static;
+}
