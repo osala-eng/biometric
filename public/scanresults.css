@@ -1,3 +1,4 @@
+
 body{
     background-color: #42f5c8;
 }
@@ -38,6 +39,7 @@ header h1{
     margin: 1cm 3cm;
     border-left: 2px black dashed;
     border-right: 2px black dashed;
+
 }
 #patientData h3{
     width: 5cm;
@@ -57,3 +59,8 @@ header h1{
     position: static;
     font-size: 20px;
 }
+#rpt{
+    margin-left:2cm;
+    margin-right:2cm;
+}
+

@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 var HTTP_PORT = 3000
+var hostIp = "192.168.0.121"
 
 // Start server
 app.listen(HTTP_PORT, () => {
@@ -38,9 +39,69 @@ app.get("/scanresult.html/:id", (req, res, next) => {
     var params = [req.params.id]//[md5(req.params.id)]
     db.get(sql, params, (err, row) => {
         if (err) {
-          res.status(400).json({"error":err.message});
-          return;
+          //res.status(404).json({"error":err.message});
+          console.log("Error recieved at no user")
+          //res.status(200).redirect('scanresult.html');
+          //return;
         }
+        if(!row){
+            console.log("No rows were received")
+            res.send(`
+            <!DOCTYPE html>
+            <html>
+                <head>
+                    <header>
+                        <title>
+                            Record not found
+                        </title>
+                    </header>
+                    <link rel="stylesheet" 
+                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            
+                     <link rel="stylesheet" href="http://${hostIp}:${HTTP_PORT}/fab.css">
+            
+                </head>
+                <body>
+                    <h1>No patient record matches the fingerprint<h1>
+                        <div class="fab-container">
+                            <div class="fab-icon-holder">
+                                <i class="fa fa-bars"></i>
+                            </div>
+                            <ul class="fab-options">
+                                <li>
+                                    <span class="fab-label">Documentation</span>
+                                    <div class="fab-icon-holder">
+                                        <i class="fa fa-bars"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="fab-label">Documentation</span>
+                                    <div class="fab-icon-holder">
+                                        <i class="fa fa-bars"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="fab-label">Documentation</span>
+                                    <div class="fab-icon-holder">
+                                        <i class="fa fa-bars"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="fab-label">Documentation</span>
+                                    <div class="fab-icon-holder">
+                                        <i class="fa fa-bars"></i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                </body>
+            
+            </html>
+                        `);
+            res.end()
+        }
+        else{
        // res.setHeader('Content-Type','html')
        //Patient result form
         //#region HTML patient data
@@ -55,7 +116,10 @@ app.get("/scanresult.html/:id", (req, res, next) => {
                     <h1>HEALTH CENTER</h1>
                 </header>
             </head>
-            <!--<link href="scanresults.css" rel="stylesheet"/>-->
+            <link rel="stylesheet" 
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link href="http://${hostIp}:${HTTP_PORT}/scanresults.css" rel="stylesheet"/>
+            <link href="http://${hostIp}:${HTTP_PORT}/actionbutton.css" rel="stylesheet"/>
             <body>
                 <div id="workarea">
                     <div id="letterhead" >
@@ -117,82 +181,49 @@ app.get("/scanresult.html/:id", (req, res, next) => {
                             <p style="width:15cm;height:6cm;">${row.report}</p> 
                         </section>
                     </div>
+                    <div class="fab-container">
+                <div class="fab-icon-holder">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <ul class="fab-options">
+                    <li>
+                        <span class="fab-label">Close</span>
+                        <div class="fab-icon-holder">
+                            <i class="fa fa-bars" onclick="homePage()"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="fab-label">Email</span>
+                        <div class="fab-icon-holder">
+                            <i class="fa fa-bars"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="fab-label">Home</span>
+                        <div class="fab-icon-holder">
+                            <i class="fa fa-bars"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="fab-label">Exit</span>
+                        <div class="fab-icon-holder">
+                            <i class="fa fa-bars"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
                     <footer>
                         Developed by Osala c2020
                         <n>jashonosala@gmail.com</n>
                     </footer>
-                    <!--script src="user.js"></script>-->
+                    <script src="http://${hostIp}:${HTTP_PORT}/user.js"></script>
                     <!--script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>-->
                 </body>
-                <style>
-                body{
-                    background-color: #42f5c8;
-                }
-                footer{
-                    clear: both;
-                    color: darkcyan;
-                }
-                #workarea{
-                    width: 21cm;
-                    height: 30cm;
-                    margin: auto;
-                    background-color: lavender;
-                }
-                header{
-                    text-align: center;
-                    font-size: xx-large;
-                    color: #424ef5;
-                    font-style: normal;
-                    font-family: cursive;
-                    background-color: #f542f5;  
-                    border-radius: 5px; 
-                }
-                header h1{
-                    margin-top: 0px;
-                    margin-bottom: 0px;
-                }
-                
-                #letterhead{
-                    margin-top: 1cm;
-                    margin-bottom: 0px;
-                    text-align: center;
-                    border-bottom: 2px black dashed;
-                }
-                #letterhead h2{
-                    margin-top: 1cm;
-                }
-                #patientData{
-                    margin: 1cm 3cm;
-                    border-left: 2px black dashed;
-                    border-right: 2px black dashed;
-
-                }
-                #patientData h3{
-                    width: 5cm;
-                    float: left;
-                    
-                    margin: 16px 0;
-                    height: 0.8cm;
-                    position: static;
-                    font-size: 20px;
-                }
-                #patientData p{
-                    width: 8cm;
-                    float: right;
-                    
-                    margin: 16px 0;
-                    height: 0.8cm;
-                    position: static;
-                    font-size: 20px;
-                }#rpt{
-                    margin-left:2cm;
-                    margin-right:2cm;
-                }
-                </style>
-            </html>
+           </html>
             
         `)
         //#endregion
+            }
         // json({
         //     "message":"success",
         //     "data":row
