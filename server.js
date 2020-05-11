@@ -49,7 +49,43 @@ app.get("/scanresult.html/:id", (req, res, next) => {
       });
 });
 
+app.post("/data", (req,res,next) => {
+    console.log("POST request recieved") 
 
+    var sql = "INSERT INTO patienttbl VALUES (?,?,?,?,?,?,?,?,?,?,?,?)"
+    var params = [md5(req.body.uniqueID),req.body.firstName,req.body.secondName,req.body.lastName,
+        req.body.dateofBirth,req.body.nameofParent,req.body.phoneNumber,req.body.emailAddress,
+        req.body.placeofBirth,req.body.bloodGroup,req.body.dateofVisit,req.body.doctorReport]
+    db.run(sql,params,function(err){
+            if(err){
+                console.log(`Error: ${err}`);
+            }
+            else{
+                res.status(200).redirect('main.html');
+            }
+        });
+});
+
+app.post("/scan", (req,res,next) => {
+    console.log("SCANNING REQUEST RECIEVED") 
+    var id = [md5(req.body.scanWindow)];
+     res.status(200).redirect(`/scanresult.html/${id}`);
+ });
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+/*
 // app.post("/api/user/", (req, res, next) => {
 //     var errors=[]
 //     if (!req.body.password){
@@ -81,34 +117,13 @@ app.get("/scanresult.html/:id", (req, res, next) => {
 //         })
 //     });
 // })
-
-app.post("/data", (req,res,next) => {
-    console.log("POST request recieved") 
-
-    var sql = "INSERT INTO patienttbl VALUES (?,?,?,?,?,?,?,?,?,?,?,?)"
-    var params = [md5(req.body.uniqueID),req.body.firstName,req.body.secondName,req.body.lastName,
-        req.body.dateofBirth,req.body.nameofParent,req.body.phoneNumber,req.body.emailAddress,
-        req.body.placeofBirth,req.body.bloodGroup,req.body.dateofVisit,req.body.doctorReport]
-    db.run(sql,params,function(err){
-            if(err){
-                console.log(`Error: ${err}`);
-            }
-            else{
-                res.status(200).redirect('main.html');
-            }
-        });
-});
-
-app.post("/scan", (req,res,next) => {
-    console.log("SCANNING REQUEST RECIEVED") 
-    var id = [md5(req.body.scanWindow)];
-     res.status(200).redirect(`/scanresult.html/${id}`);
- });
+*/
 
 
 
 
 
+/*
 // app.patch("/api/user/:id", (req, res, next) => {
 //     var data = {
 //         name: req.body.name,
@@ -154,3 +169,4 @@ app.get("/", (req, res, next) => {
     res.json({"message":"Ok"})
 });
 
+*/
