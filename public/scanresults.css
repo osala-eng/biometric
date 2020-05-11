@@ -36,20 +36,24 @@ header h1{
 }
 #patientData{
     margin: 1cm 3cm;
+    border-left: 2px black dashed;
+    border-right: 2px black dashed;
 }
 #patientData h3{
     width: 5cm;
     float: left;
-    background-color: cyan;
+    
     margin: 16px 0;
     height: 0.8cm;
     position: static;
+    font-size: 20px;
 }
 #patientData p{
     width: 8cm;
     float: right;
-    background-color: cadetblue;
+    
     margin: 16px 0;
     height: 0.8cm;
     position: static;
+    font-size: 20px;
 }

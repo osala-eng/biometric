@@ -41,7 +41,158 @@ app.get("/scanresult.html/:id", (req, res, next) => {
           res.status(400).json({"error":err.message});
           return;
         }
-        res.send(row)
+       // res.setHeader('Content-Type','html')
+       //Patient result form
+        //#region HTML patient data
+       res.send(`
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <title>
+                    New patient
+                </title>
+                <header hidden>
+                    <h1>HEALTH CENTER</h1>
+                </header>
+            </head>
+            <!--<link href="scanresults.css" rel="stylesheet"/>-->
+            <body>
+                <div id="workarea">
+                    <div id="letterhead" >
+                        <h2>
+                            HEALTH CENTER
+                        </h2>
+                        <p>Patient data</p>
+                    </div>
+                    <section id="patientData">
+                        <section class="patientinfo">
+                            <h3>First name</h3>
+                            <p>${row.firstName}</p> 
+                        </section>
+                        <section class="patientinfo">
+                            <h3>Middle name</h3>
+                            <p>${row.middleName}</p> 
+                        </section>
+                        <section class="patientinfo">
+                            <h3>Last name</h3>
+                            <p>${row.lastName}</p> 
+                        </section>
+                        <section class="patientinfo">
+                            <h3>Date of birth</h3>
+                            <p>${row.dateofBirth}</p> 
+                        </section>
+                        <section class="patientinfo">
+                            <h3>Name of parent</h3>
+                            <p>${row.nameofParent}</p> 
+                        </section>
+                        <section class="patientinfo">
+                            <h3>Tel</h3>
+                            <p>${row.phoneNumber}</p> 
+                        </section>
+                        <section class="patientinfo">
+                            <h3>Email</h3>
+                            <p>${row.emailAddress}</p> 
+                        </section>
+                        <section class="patientinfo">
+                            <h3>Place of birth</h3>
+                            <p>${row.placeofBirth}</p> 
+                        </section>
+                        <section class="patientinfo">
+                            <h3>Blood group</h3>
+                            <p>${row.bloodGroup}</p> 
+                        </section>
+                        <section class="patientinfo">
+                            <h3>Date of visit</h3>
+                            <p>${row.dateofVisit}</p> 
+                        </section>
+                        <section class="patientinfo">
+                            <h3>Fingerprint</h3>
+                            <p>${row.id}</p> 
+                        </section>
+                        
+                        
+                    </section>
+                    <section id="rpt">
+                            <h3 style="text-align:center;clear:both;">Docter-Report</h3>
+                            <p style="width:15cm;height:6cm;">${row.report}</p> 
+                        </section>
+                    </div>
+                    <footer>
+                        Developed by Osala c2020
+                        <n>jashonosala@gmail.com</n>
+                    </footer>
+                    <!--script src="user.js"></script>-->
+                    <!--script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>-->
+                </body>
+                <style>
+                body{
+                    background-color: #42f5c8;
+                }
+                footer{
+                    clear: both;
+                    color: darkcyan;
+                }
+                #workarea{
+                    width: 21cm;
+                    height: 30cm;
+                    margin: auto;
+                    background-color: lavender;
+                }
+                header{
+                    text-align: center;
+                    font-size: xx-large;
+                    color: #424ef5;
+                    font-style: normal;
+                    font-family: cursive;
+                    background-color: #f542f5;  
+                    border-radius: 5px; 
+                }
+                header h1{
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                }
+                
+                #letterhead{
+                    margin-top: 1cm;
+                    margin-bottom: 0px;
+                    text-align: center;
+                    border-bottom: 2px black dashed;
+                }
+                #letterhead h2{
+                    margin-top: 1cm;
+                }
+                #patientData{
+                    margin: 1cm 3cm;
+                    border-left: 2px black dashed;
+                    border-right: 2px black dashed;
+
+                }
+                #patientData h3{
+                    width: 5cm;
+                    float: left;
+                    
+                    margin: 16px 0;
+                    height: 0.8cm;
+                    position: static;
+                    font-size: 20px;
+                }
+                #patientData p{
+                    width: 8cm;
+                    float: right;
+                    
+                    margin: 16px 0;
+                    height: 0.8cm;
+                    position: static;
+                    font-size: 20px;
+                }#rpt{
+                    margin-left:2cm;
+                    margin-right:2cm;
+                }
+                </style>
+            </html>
+            
+        `)
+        //#endregion
         // json({
         //     "message":"success",
         //     "data":row
