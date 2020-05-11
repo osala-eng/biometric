@@ -32,11 +32,11 @@ app.get("/api/users", (req, res, next) => {
 });
 
 
-app.get("/data", (req, res, next) => {
+app.get("/scanresult.html/:id", (req, res, next) => {
     console.log("GET recieved at all User info")
-    var sql = "select * from patienttbl"
-    var params = []//[md5(req.params.id)]
-    db.all(sql, params, (err, row) => {
+    var sql = "select * from patienttbl where id = ?"
+    var params = [req.params.id]//[md5(req.params.id)]
+    db.get(sql, params, (err, row) => {
         if (err) {
           res.status(400).json({"error":err.message});
           return;
@@ -98,6 +98,12 @@ app.post("/data", (req,res,next) => {
             }
         });
 });
+
+app.post("/scan", (req,res,next) => {
+    console.log("SCANNING REQUEST RECIEVED") 
+    var id = [md5(req.body.scanWindow)];
+     res.status(200).redirect(`/scanresult.html/${id}`);
+ });
 
 
 
