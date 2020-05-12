@@ -37,6 +37,9 @@ body{
 footer{
     clear: both;
     color: darkcyan;
+    position: fixed;
+    bottom: 10px;
+    left: 5px;
 }
 #workarea{
     width: 1000px;

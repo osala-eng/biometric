@@ -10,62 +10,26 @@
     </head>
     <link href="scan.css" rel="stylesheet"/>
     <body>
-
-        <div id="workarea">
-
-            <div id="menu-bar">
-                <!--<form>
-                    <input type="button" name="home" value="HOME"/>
-                    <input type="button" name="scan" value="SCAN"/>
-                    <input type="button"name="newpatient" value="NEW PATIENT"/>
-                    <input type="button" name="logout" value="LOG OUT"/>
-                    <input type="button"name="about" value="ABOUT US"/>
-                </form>-->
-                <!--<video src="vid.mp4" preload="auto"width="500px"></video>-->
-            </div>
-            <div id="scan-window">
-                <form action="/scan" method="POST" > 
-                    <div id="scan-window-name" >
-                        <h2>Ready to scan</h2>
-                    </div>
-                    <div id="scan-window-item">
-                        <input type="password" name="scanWindow" spellcheck="false" id="scanBox"
-                        required placeholder="Waiting for scanner..." 
-                        minlength="8" maxlength="8" spellcheck="false"/>
-                    </div>
-                    <div id="scan-window-cancel">
-                        <input type="submit" value="SUBMIT"/>
-                        <input type="button" name="back" value="Cancel" 
-                        onclick="cancelScan()"/>
-                    </div>
-                </form>
-                
-            </div>
-
-           <!-- <div id="login-window">
-                <form>
-                    <div id="usernamename">
-                        <h2>Username</h2>
-                        
-                    </div>
-                    <div id="passwordname">
-                        <h2>Password</h2>
-                    </div>
-                    <div id="namebox">
-                        <input type="text" name="user-name" placeholder="Enter username" required 
-                        minlength="5" maxlength="25" spellcheck="false" />
-                        
-                    </div>
-                    <div id="passwordbox">
-                        <input type="text" name="password" placeholder="Enter password" required 
-                        minlength="8" maxlength="25" spellcheck="false" />
-                    </div>
-                    <div id="submit">
-                        <input type="submit" value="login" translate="yes" width="100px"/>
-                    </div>
-                </form>
-            </div>-->
+        <div id="scan-window">
+            <form action="/scan" method="POST" > 
+                <div id="scan-window-name" >
+                    <h2>Ready to scan</h2>
+                </div>
+                <div id="scan-window-item">
+                    <input type="password" name="scanWindow" spellcheck="false" id="scanBox"
+                    required placeholder="Waiting for scanner..." 
+                    minlength="8" maxlength="8" spellcheck="false"/>
+                </div>
+                <div id="scan-window-cancel">
+                    <input type="submit" value="SUBMIT"/>
+                    <input type="button" name="back" value="Cancel" 
+                    onclick="cancelScan()"/>
+                </div>
+            </form>
+            
         </div>
+
+    
         <footer>
             Developed by Osala c2020
             <n>jashonosala@gmail.com</n>

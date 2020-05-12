@@ -4,12 +4,16 @@ body{
 footer{
     clear: both;
     color: darkcyan;
+    position: fixed;
+    bottom: 10px;
+    left: 5px;
 }
 #workarea{
     width: 21cm;
     height: 30cm;
     margin: auto;
     background-color: lavender;
+    visibility: hidden;
 }
 header{
     text-align: center;
@@ -45,10 +49,11 @@ header h1{
 #scan-window form{
     margin: 3cm auto;
     background-color: lightblue;
-    width: fit-content;
+    width: 9cm;
     text-align: center;
     border: 4px black;
     border-radius: 10px;
+    visibility: show;
 }
 #scan-window form input{
     width: 7cm;
