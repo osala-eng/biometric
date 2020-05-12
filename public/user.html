@@ -13,7 +13,7 @@
 
         <div id="workarea">
             <div id="login-window">
-                <form>
+                <form action="/api/user/login" method="POST">
                     <div id="usernamename">
                         <h2>Username</h2>
                         
@@ -22,13 +22,13 @@
                         <h2>Password</h2>
                     </div>
                     <div id="namebox">
-                        <input type="text" name="user-name" placeholder="Enter username" required 
+                        <input type="text" name="userName" placeholder="Enter userame" required 
                         minlength="5" maxlength="25" spellcheck="false" />
                         
                     </div>
                     <div id="passwordbox">
-                        <input type="password" name="pass-word" placeholder="Enter password" required 
-                        minlength="8" maxlength="25" spellcheck="false" id="passInput" />
+                        <input type="password" name="passWord" placeholder="Enter password" required 
+                        minlength="5" maxlength="25" spellcheck="false" id="passInput" />
                     </div>
                     <div id="submit">
                         <div id="checkbox">

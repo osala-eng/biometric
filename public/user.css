@@ -15,13 +15,13 @@ body{
     float: left;
     padding-left: 20px;
     color: crimson;
-    position: fixed;
+    position: absolute; 
 }
 #passwordname{
     float: left;
     color: crimson;
     padding-left: 20px;
-    position: fixed;
+    position: absolute;
     margin-top: 65px;
 }
 #namebox{

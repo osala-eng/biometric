@@ -17,20 +17,60 @@ app.listen(HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
 });
 
-app.get("/api/users", (req, res, next) => {
-    var sql = "select * from patienttbl"
-    var params = []
-    db.all(sql, params, (err, rows) => {
-        if (err) {
-          res.status(400).json({"error":err.message});
-          return;
+//GET USER CREDENTIALS
+app.get("/api/user/login/:hush",(req,res,next) =>{
+    var sql = "select * from usertbl1 where hush = ?"
+    var params = [req.params.hush]
+     db.get(sql,params,(err,row) =>{
+        if(err){
+            res.status(400).json({"error":err.message});
+            return;
         }
-        res.json({
-            "message":"success",
-            "data":rows
-        })
-      });
+        if(!row){
+            //Username error
+            res.send(`<script>document.write('User does not Exist');</script>`)
+            
+        }
+        else{
+            if(params == (row.username + row.password)){
+                console.log(`${row.username} has logged in`)
+                res.status(200).redirect(`http://${hostIp}:${HTTP_PORT}/main.html`);
+            }
+            else{
+            res.send(`<script>document.write('User does not Exist');</script>`)
+            console.log(`${row.username} entered a wrong password`)
+            
+            //console.log(row.username + row.password)
+            }
+            
+        }
+    });
 });
+
+//POST user credentials
+
+app.post("/api/user/login", (req,res,next) => {
+    var id = [req.body.userName + md5(req.body.passWord)];
+    //console.log(`${id} is logging in...`) 
+    
+     res.status(200).redirect(`/api/user/login/${id}`);
+ });
+
+
+// app.get("/api/users", (req, res, next) => {
+//     var sql = "select * from patienttbl"
+//     var params = []
+//     db.all(sql, params, (err, rows) => {
+//         if (err) {
+//           res.status(400).json({"error":err.message});
+//           return;
+//         }
+//         res.json({
+//             "message":"success",
+//             "data":rows
+//         })
+//       });
+// });
 
 
 app.get("/scanresult.html/:id", (req, res, next) => {

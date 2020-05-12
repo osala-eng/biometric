@@ -30,6 +30,17 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
             "The patient is regaining conciousness and doing ok"])
             
         }
+        db.run(`CREATE TABLE usertbl1 (
+            username VARCHAR PRIMARY KEY, password VARCHAR, hush VARCHAR)`,(err)=>{
+                if (err){
+                    console.log("user table1 available")
+                }
+                else{
+                    
+                    var insert = 'INSERT INTO usertbl1 VALUES (?,?,?)'
+                    db.run(insert,["admin",md5("admin"),"admin"+md5("admin")])
+                }
+            })
     })  
     }
 })
