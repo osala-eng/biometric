@@ -8,7 +8,9 @@ function showPassword(){
     }
 }
 var hostIpAddress = "192.168.0.121";
-
+function goBack(){
+    window.history.back();
+}
 function startScan(){
     window.open(`http://${hostIpAddress}:3000/scan.html`,"_self");
 }

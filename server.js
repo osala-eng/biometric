@@ -28,7 +28,7 @@ app.get("/api/user/login/:hush",(req,res,next) =>{
         }
         if(!row){
             //Username error
-            res.send(`<script>document.write('User does not Exist');</script>`)
+            res.send(`${message1}User does not Exist${message2}`)
             
         }
         else{
@@ -37,7 +37,7 @@ app.get("/api/user/login/:hush",(req,res,next) =>{
                 res.status(200).redirect(`http://${hostIp}:${HTTP_PORT}/main.html`);
             }
             else{
-            res.send(`<script>document.write('User does not Exist');</script>`)
+            res.send(`${message1}User does not Exist or wrong credentials${message2}`)
             console.log(`${row.username} entered a wrong password`)
             
             //console.log(row.username + row.password)
@@ -57,20 +57,36 @@ app.post("/api/user/login", (req,res,next) => {
  });
 
 
-// app.get("/api/users", (req, res, next) => {
-//     var sql = "select * from patienttbl"
-//     var params = []
-//     db.all(sql, params, (err, rows) => {
-//         if (err) {
-//           res.status(400).json({"error":err.message});
-//           return;
-//         }
-//         res.json({
-//             "message":"success",
-//             "data":rows
-//         })
-//       });
-// });
+app.get("/api/users", (req, res, next) => {
+    var sql = "select * from patienttbl"
+    var params = []
+    db.all(sql, params, (err, rows) => {
+        if (err) {
+          res.status(400).json({"error":err.message});
+          return;
+        }
+        res.json({
+            "message":"success",
+            "data":rows
+        })
+      });
+});
+
+
+app.post("/api/user/register", (req,res,next) => {
+    console.log("New user registration") 
+
+    var sql = "INSERT INTO usertbl1 VALUES (?,?,?)"
+    var params = [req.body.Username,md5(req.body.Password),req.body.Username + md5(req.body.Password)]
+    db.run(sql,params,function(err){
+            if(err){
+                console.log(`Error: ${err}`);
+            }
+            else{
+                res.send(`${message1}User registration succesfull${message2}`);
+            }
+        });
+});
 
 
 app.get("/scanresult.html/:id", (req, res, next) => {
@@ -86,50 +102,7 @@ app.get("/scanresult.html/:id", (req, res, next) => {
         }
         if(!row){
             console.log("No rows were received")
-            res.send(`
-            <!DOCTYPE html>
-            <html>
-                <head>
-                    <header>
-                        <title>
-                            Record not found
-                        </title>
-                    </header>
-                    <link rel="stylesheet" 
-                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            
-                     <link rel="stylesheet" href="http://${hostIp}:${HTTP_PORT}/fab.css">
-            
-                </head>
-                <body>
-                    <h1>No patient record matches the fingerprint<h1>
-                        <div class="fab-container">
-                            <div class="fab-icon-holder">
-                                <i class="fa fa-bars"></i>
-                            </div>
-                            <ul class="fab-options">
-                                <li>
-                                    <span class="fab-label">Home</span>
-                                    <div class="fab-icon-holder">
-                                        <i class="fa fa-bars" onclick="homePage()"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="fab-label">Scan</span>
-                                    <div class="fab-icon-holder">
-                                        <i class="fa fa-bars" onclick="startScan()"></i>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <footer>
-                            Developed by Osala c2020
-                            <n>jashonosala@gmail.com</n>
-                        </footer>
-                </body>
-                <script src="http://${hostIp}:${HTTP_PORT}/user.js"></script>    
-            </html>
-                        `);
+            res.send(`${message1}No patient matches the finger print${message2}`);
             res.end()
         }
         else{
@@ -383,3 +356,41 @@ app.get("/", (req, res, next) => {
 });
 
 */
+//TEMPLATE
+var message1 =`<!DOCTYPE html>
+<html>
+    <head>
+        <header>
+            <title>
+                Record not found
+            </title>
+        </header>
+        <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+         <link rel="stylesheet" href="http://${hostIp}:${HTTP_PORT}/fab.css">
+
+    </head>
+    <body>
+        <h1>`
+var message2 =`<h1>
+<div class="fab-container">
+    <div class="fab-icon-holder">
+        <i class="fa fa-bars"></i>
+    </div>
+    <ul class="fab-options">
+        <li>
+            <span class="fab-label">BACK</span>
+            <div class="fab-icon-holder">
+                <i class="fa fa-bars" onclick="goBack()"></i>
+            </div>
+        </li>
+    </ul>
+</div>
+<footer>
+    Developed by Osala c2020
+    <n>jashonosala@gmail.com</n>
+</footer>
+</body>
+<script src="http://${hostIp}:${HTTP_PORT}/user.js"></script>    
+</html>`

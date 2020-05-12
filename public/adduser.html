@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>User registration</title>
+        <link rel="stylesheet" href="adduser.css">
+        <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="actionbutton.css">
+    </head>
+    <body>
+        <header>
+            <h1>New user registration</h1>
+        </header>
+        <div id="userdetails">
+            <form action="api/user/register" method="post">
+                <h2>Enter user credentials</h2>
+                <input type="text" name="Username" placeholder="Enter username here">
+                <input type="password" name="Password" placeholder="Enter password here">
+                <input type="password" name="Password1" placeholder="Repeat password">
+                <input type="submit" class="submitbutton">
+            </form>
+        </div>
+        <div class="fab-container">
+            <div class="fab-icon-holder">
+                <i class="fa fa-bars"></i>
+            </div>
+            <ul class="fab-options">
+                <li>
+                    <span class="fab-label">Close</span>
+                    <div class="fab-icon-holder">
+                        <i class="fa fa-bars" onclick="homePage()">X</i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <footer>
+            Developed by Osala c2020
+            <n>jashonosala@gmail.com</n>
+        </footer>
+        <script src="user.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    </body>
+</html>
