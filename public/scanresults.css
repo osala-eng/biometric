@@ -10,7 +10,7 @@ footer{
     width: 21cm;
     height: 30cm;
     margin: auto;
-    background-color: lavender;
+    background-color: rgba(230, 230, 250, 0.726);
 }
 header{
     text-align: center;

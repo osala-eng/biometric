@@ -14,10 +14,10 @@ footer{
 header{
     text-align: center;
     font-size: xx-large;
-    color: #424ef5;
+    color: #f11212;
     font-style: normal;
     font-family: cursive;
-    background-color: #f542f5;  
+    background-color: hsla(0, 0%, 99%, 0.527);  
     border-radius: 5px; 
 }
 header h1{

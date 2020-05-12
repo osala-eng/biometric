@@ -42,7 +42,7 @@ getpatientData();
 function getpatientData(){
     //userData();
     console.log("Getting patient info")
-    $get("/data", function(data){
+    $.get("/data", function(data){
         if(!data){
             console.log("No data received");
         }
