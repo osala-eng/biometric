@@ -69,34 +69,25 @@ app.get("/scanresult.html/:id", (req, res, next) => {
                             </div>
                             <ul class="fab-options">
                                 <li>
-                                    <span class="fab-label">Documentation</span>
+                                    <span class="fab-label">Home</span>
                                     <div class="fab-icon-holder">
-                                        <i class="fa fa-bars"></i>
+                                        <i class="fa fa-bars" onclick="homePage()"></i>
                                     </div>
                                 </li>
                                 <li>
-                                    <span class="fab-label">Documentation</span>
+                                    <span class="fab-label">Scan</span>
                                     <div class="fab-icon-holder">
-                                        <i class="fa fa-bars"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="fab-label">Documentation</span>
-                                    <div class="fab-icon-holder">
-                                        <i class="fa fa-bars"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="fab-label">Documentation</span>
-                                    <div class="fab-icon-holder">
-                                        <i class="fa fa-bars"></i>
+                                        <i class="fa fa-bars" onclick="startScan()"></i>
                                     </div>
                                 </li>
                             </ul>
                         </div>
-                        
+                        <footer>
+                            Developed by Osala c2020
+                            <n>jashonosala@gmail.com</n>
+                        </footer>
                 </body>
-            
+                <script src="http://${hostIp}:${HTTP_PORT}/user.js"></script>    
             </html>
                         `);
             res.end()

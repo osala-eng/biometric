@@ -56,12 +56,14 @@ form input{
     }
 .news h1{
     text-align: center;
-    font-size: 20px;
+    font-size: 30px;
 }
 .news p{
     padding-left: 5px;
     padding-right: 5px;
     text-overflow: ellipsis;
+    text-align: justify;
+    font-size: 16px;
 }
 ::-webkit-scrollbar{
     background-color: rgba(0, 0, 0, 0.795);
@@ -80,5 +82,6 @@ form input{
     position: absolute;
     top: 95px;
     right: 20px;
+    border-radius: 5px;
 
 }

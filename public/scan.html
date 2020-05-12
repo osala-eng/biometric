@@ -9,6 +9,9 @@
         </header>
     </head>
     <link href="scan.css" rel="stylesheet"/>
+    <link rel="stylesheet" 
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="actionbutton.css">
     <body>
         <div id="scan-window">
             <form action="/scan" method="POST" > 
@@ -26,7 +29,19 @@
                     onclick="cancelScan()"/>
                 </div>
             </form>
-            
+            <div class="fab-container">
+                <div class="fab-icon-holder">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <ul class="fab-options">
+                    <li>
+                        <span class="fab-label">Cancel</span>
+                        <div class="fab-icon-holder">
+                            <i class="fa fa-altbars" onclick="homePage()">C</i>
+                        </div>
+                    </li>
+                 </ul>
+            </div>
         </div>
 
     

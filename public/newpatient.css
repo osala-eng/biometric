@@ -1,3 +1,4 @@
+
 body{
     background-color: #42f5c8;
 }
@@ -90,7 +91,7 @@ h2{
 }
 #biodata{
     height: fit-content;
-    background-color: lawngreen;
+    background-color: rgba(180, 192, 168, 0.877);
 }
 #biodata h2{
     text-align: center;
@@ -102,7 +103,7 @@ h2{
 #medical-record h2{
     text-align: center;
     clear: both;
-    background-color: lawngreen;
+    background-color: rgba(180, 192, 168, 0.877);
     margin-top: 0.5cm;
 }
 #medical-record-left{
@@ -145,8 +146,8 @@ h2{
     font-family: 'Times New Roman', Times, serif;
 }
 #submit{
-    margin: 0 auto;
-    width: fit-content;
+    margin: 0 3cm;
+    
 }
 #submit input{
     margin: 20px;
@@ -155,7 +156,16 @@ h2{
     width: 100px;
     clear: both;
 }
-#submit input[type="password" i]{
+#submit input[type="password"]{
     width: 6.5cm;
     height: 0.6cm;
 } 
+::-webkit-scrollbar{
+    background-color: rgba(0, 0, 0, 0.795);
+}
+::-webkit-scrollbar-button{
+    border: 1px white dashed;
+}::-webkit-scrollbar-thumb{
+    /* border: 1px white dashed; */
+    background-color: rgba(255, 255, 255, 0.144);
+}

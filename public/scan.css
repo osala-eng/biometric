@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
     background-color: #42f5c8;
 }
@@ -8,13 +12,7 @@ footer{
     bottom: 10px;
     left: 5px;
 }
-#workarea{
-    width: 21cm;
-    height: 30cm;
-    margin: auto;
-    background-color: lavender;
-    visibility: hidden;
-}
+
 header{
     text-align: center;
     font-size: xx-large;
@@ -28,30 +26,13 @@ header h1{
     margin-top: 0px;
     margin-bottom: 0px;
 }
-#menu-bar form{
-    background-color: #75f542;
-    height: 40px;
-    width: auto;
-    border: 2px green;
-    border-radius: 3px;
-    background-clip: border-box;
-}
-#menu-bar form input{
-    width: 150px;height: 40px;
-    color: rgb(245, 13, 13);
-    background-color: rgb(77, 165, 238);
-    text-decoration: darkcyan;
-    font-weight: bolder;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    border-radius: 5px;
-}
+
 #scan-window form{
     margin: 3cm auto;
-    background-color: lightblue;
+    background-color: rgba(0, 0, 0, 0.685);
     width: 9cm;
     text-align: center;
-    border: 4px black;
+    border: 2px rgb(47, 0, 255) dashed;
     border-radius: 10px;
     visibility: show;
 }
@@ -74,7 +55,9 @@ h2{
     width:3cm;
     border-radius: 10px;
     margin-left: 0.5cm;
-}#scan-window-cancel input[type="submit"]{
+    visibility: hidden;
+}
+#scan-window-cancel input[type="submit"]{
     width:3cm;
     border-radius: 10px;
     margin-right: 0.5cm;

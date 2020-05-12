@@ -67,3 +67,12 @@ header h1{
     margin-right:2cm;
 }
 
+::-webkit-scrollbar{
+    background-color: rgba(0, 0, 0, 0.795);
+}
+::-webkit-scrollbar-button{
+    border: 1px white dashed;
+}::-webkit-scrollbar-thumb{
+    /* border: 1px white dashed; */
+    background-color: rgba(255, 255, 255, 0.144);
+}
