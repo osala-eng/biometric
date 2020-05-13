@@ -44,7 +44,7 @@ getpatientData();
 function getpatientData(){
     //userData();
     console.log("Getting patient info")
-    $.get("/data", function(data){
+    $.get("/scanresult", function(data){
         if(!data){
             console.log("No data received");
         }
@@ -52,7 +52,6 @@ function getpatientData(){
         for(var i = 0; i< data.length;i++){
             console.log(data[i].name);
         }
-        userData();
         showData(data);
     });
 }
@@ -74,7 +73,6 @@ function getpatientData(){
 // }
 
 function showData(patienttbl){
-    userData();
     var dataSection = document.getElementById("patientData");
         var section = document.createElement("section");
         section.className = "patientinfo";

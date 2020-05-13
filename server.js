@@ -57,7 +57,7 @@ app.post("/api/user/login", (req,res,next) => {
  });
 
 
-app.get("/api/users", (req, res, next) => {
+app.get("/scanresult", (req, res, next) => {
     var sql = "select * from patienttbl"
     var params = []
     db.all(sql, params, (err, rows) => {
@@ -65,10 +65,7 @@ app.get("/api/users", (req, res, next) => {
           res.status(400).json({"error":err.message});
           return;
         }
-        res.json({
-            "message":"success",
-            "data":rows
-        })
+        res.send(rows)
       });
 });
 
