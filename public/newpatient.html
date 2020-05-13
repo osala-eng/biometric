@@ -4,15 +4,15 @@
         <title>
             New patient
         </title>
+        
+    </head>
+    <body>
         <header hidden>
             <h1>HEALTH CENTER</h1>
         </header>
-    </head>
-    <link href="newpatient.css" rel="stylesheet"/>
-    <body>
         <div id="workarea">
             <form action="/data" method="POST">
-                <div id="letterhead" >
+                <div id="letterhead">
                     <h2>
                         HEALTH CENTER
                     </h2>
@@ -20,22 +20,22 @@
                 </div>
                 <div id="itemdescription">
                     <div id="biodata">
-                        <h2>Bio Data</h2> 
+                        <h2>Bio Data</h2>
                         <div id="biodata-left">
                             <h3>First Name</h3><h3>Second Name</h3><h3>Last Name</h3>
                             <h3>Date of Birth</h3><h3>Name of parent</h3><h3>Contact</h3>
                             <h3>Email</h3><h3>Place of birth</h3>
                         </div>
-                    
+
                         <div id="input-boxes">
-                            <input type="text" name="firstName" placeholder="First name" spellcheck="false"/>
-                            <input type="text" name="secondName" placeholder="Middle name" spellcheck="false"/>
-                            <input type="text" name="lastName" placeholder="Last name" spellcheck="false"/>
-                            <input type="date" name="dateofBirth" placeholder="Date of birth"/>
-                            <input type="text" name="nameofParent" placeholder="Parent's name" spellcheck="false"/>
-                            <input type="number"name="phoneNumber" placeholder="TEL" size="10"/>
-                            <input type="email" name="emailAddress" placeholder="Email address" spellcheck="false"/>
-                            <input type="text" name="placeofBirth" placeholder="Place of birth" spellcheck="false"/>
+                            <input type="text" name="firstName" placeholder="First name" spellcheck="false" />
+                            <input type="text" name="secondName" placeholder="Middle name" spellcheck="false" />
+                            <input type="text" name="lastName" placeholder="Last name" spellcheck="false" />
+                            <input type="date" name="dateofBirth" placeholder="Date of birth" />
+                            <input type="text" name="nameofParent" placeholder="Parent's name" spellcheck="false" />
+                            <input type="number" name="phoneNumber" placeholder="TEL" size="10" />
+                            <input type="email" name="emailAddress" placeholder="Email address" spellcheck="false" />
+                            <input type="text" name="placeofBirth" placeholder="Place of birth" spellcheck="false" />
                         </div>
                     </div>
                     <div id="medical-record">
@@ -45,8 +45,8 @@
                             <h3>Date of visit</h3>
                         </div>
                         <div id="medical-data-right">
-                            <input type="text" name="bloodGroup" placeholder="Blood group"/>
-                            <input type="date" name="dateofVisit"/>
+                            <input type="text" name="bloodGroup" placeholder="Blood group" />
+                            <input type="date" name="dateofVisit" />
                         </div>
                         <div id="medical-record-report">
                             <h3>Report</h3>
@@ -57,10 +57,10 @@
                 </div>
                 <div id="submit">
                     <input type="password" placeholder="Place cursor here the scan thumb print" name="uniqueID"
-                     minlength="8" maxlength="8" />
-                    <input type="button" value="CANCEL" onclick="homePage()"/>
-                    <input type="button" value="RESET" onclick="newPatient()"/>
-                    <input type="submit" value="SUBMIT"/>
+                           minlength="8" maxlength="8" />
+                    <input type="button" value="Cancel" onclick="homePage()" />
+                    <input id="Reset1" type="reset" value="Reset" />
+                    <input type="submit" value="Submit" />
                 </div>
             </form>
         </div>
@@ -70,5 +70,6 @@
         </footer>
         <script src="user.js"></script>
         <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <link href="newpatient.css" rel="stylesheet" />
     </body>
 </html>
